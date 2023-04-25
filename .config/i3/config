@@ -1,0 +1,116 @@
+set $mod Mod4
+
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id --transfer-sleep-lock --i3lock --nofork
+exec --no-startup-id dunst
+exec --no-startup-id flameshot
+exec --no-startup-id nm-applet
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/newjeans.png
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
+exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl
+exec_always --no-startup-id i3-autolayout autolayout
+# exec_always --no-startup-id setxkbmap -layout es
+
+# pulse audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+# Media player controls
+bindsym XF86AudioPlay exec "$HOME/scripts/mediakeys.sh play-pause";
+bindsym XF86AudioStop exec "$HOME/scripts/mediakeys.sh stop";
+bindsym XF86AudioPrev exec "$HOME/scripts/mediakeys.sh previous";
+bindsym XF86AudioNext exec "$HOME/scripts/mediakeys.sh next";
+
+# screen brightness
+bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+bindsym $mod+t exec kitty
+bindsym $mod+e exec thunar
+bindsym $mod+x kill
+bindsym $mod+r exec rofi -modi run -show drun -show-icons
+bindsym $mod+Shift+s exec flameshot gui
+bindsym $mod+q exec "$HOME/scripts/i3lock.sh";
+bindsym $mod+Shift+F11 exec setxkbmap -layout us -variant altgr-intl
+bindsym $mod+Shift+F12 exec setxkbmap -layout es
+
+# focus:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# disable title bars
+default_border pixel
+default_floating_border pixel
+for_window [class="^.*"] border pixel 1
+
+hide_edge_borders smart
+popup_during_fullscreen smart
+
+for_window [class="feh"] floating enable
+for_window [class="Yad" title="yad-calendar"] floating enable

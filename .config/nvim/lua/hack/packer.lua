@@ -27,15 +27,15 @@ return require('packer').startup(function(use)
   end
   }
 
-  use ('lukas-reineke/indent-blankline.nvim')
-  use ({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
-  use ('mbbill/undotree')
-  use ('tpope/vim-fugitive')
-  use ('bluz71/vim-nightfly-colors')
-  use ('norcalli/nvim-colorizer.lua')
-  use ('nvim-tree/nvim-web-devicons')
-  use ({'romgrk/barbar.nvim', wants = 'nvim-web-devicons'})
-  use ('CRAG666/code_runner.nvim')
+  use {'lukas-reineke/indent-blankline.nvim'}
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {'mbbill/undotree'}
+  use {'tpope/vim-fugitive'}
+  use {'bluz71/vim-nightfly-colors'}
+  use {'norcalli/nvim-colorizer.lua'}
+  use {'nvim-tree/nvim-web-devicons'}
+  use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
+  use {'CRAG666/code_runner.nvim'}
 
   use {
         'VonHeikemen/lsp-zero.nvim',
@@ -83,5 +83,6 @@ return require('packer').startup(function(use)
         end
   }
 
+  use {'bluz71/vim-nightfly-colors', as = "nightfly"}
 end)
 

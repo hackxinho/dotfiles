@@ -83,6 +83,6 @@ return require('packer').startup(function(use)
         end
   }
 
-  use {'bluz71/vim-nightfly-colors', as = "nightfly"}
+  use{'oxfist/night-owl.nvim'}
 end)
 

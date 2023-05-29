@@ -31,7 +31,6 @@ return require('packer').startup(function(use)
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'mbbill/undotree'}
   use {'tpope/vim-fugitive'}
-  use {'bluz71/vim-nightfly-colors'}
   use {'norcalli/nvim-colorizer.lua'}
   use {'nvim-tree/nvim-web-devicons'}
   use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
@@ -83,6 +82,6 @@ return require('packer').startup(function(use)
         end
   }
 
-  use{'oxfist/night-owl.nvim'}
+  use { "bluz71/vim-nightfly-colors", as = "nightfly" }
 end)
 

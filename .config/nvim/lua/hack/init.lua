@@ -20,5 +20,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
-vim.cmd.colorscheme("night-owl")
+
+vim.cmd [[colorscheme nightfly]]
+vim.g.nightflyCursorColor = true
+vim.g.nightflyVirtualTextColor = true
 

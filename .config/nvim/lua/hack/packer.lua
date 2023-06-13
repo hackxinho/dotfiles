@@ -15,8 +15,8 @@ return require('packer').startup(function(use)
 
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-    use {
-  "folke/trouble.nvim",
+  use {
+    'folke/trouble.nvim',
   requires = "kyazdani42/nvim-web-devicons",
   config = function()
     require("trouble").setup {
@@ -58,10 +58,7 @@ return require('packer').startup(function(use)
         }
   }
 
-  use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
+  use {'bluz71/nvim-linefly'}
 
   use {
         'nvim-tree/nvim-tree.lua',

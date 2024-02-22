@@ -5,7 +5,8 @@ exec --no-startup-id --transfer-sleep-lock --i3lock --nofork
 exec --no-startup-id dunst
 exec --no-startup-id flameshot
 exec --no-startup-id nm-applet
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/k2_winter.jpg
+exec --no-startup-id autorandr
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/k2dlr.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
 exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl
@@ -35,7 +36,7 @@ bindsym $mod+e exec thunar
 bindsym $mod+x kill
 bindsym $mod+r exec rofi -modi run -show drun -show-icons
 bindsym $mod+Shift+s exec flameshot gui
-bindsym $mod+q exec "$HOME/scripts/i3lock.sh";
+bindsym $mod+q exec rofi -show power-menu -modi power-menu:$HOME/scripts/rofi-power-menu
 bindsym $mod+Shift+F11 exec setxkbmap -layout us -variant altgr-intl
 bindsym $mod+Shift+F12 exec setxkbmap -layout latam
 

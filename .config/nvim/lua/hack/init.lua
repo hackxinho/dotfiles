@@ -1,4 +1,5 @@
 require("hack.remap")
+require('mason').setup()
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

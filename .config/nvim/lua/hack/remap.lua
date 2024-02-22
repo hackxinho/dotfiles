@@ -1,4 +1,4 @@
-vim.g.mapleader = ";"
+vim.g.mapleader = " "
 
 -- kill buffer
 vim.keymap.set("n", "<leader>q", ":q<CR>")
